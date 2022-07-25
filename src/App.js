@@ -1,4 +1,4 @@
-import { Pokemons, Error404 } from "screens";
+import { Pokemons, Error404, Detail } from "screens";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "App.scss";
@@ -14,8 +14,8 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Pokemons />}></Route>
-          <Route path="/pokemon/:numeric_index" element={<Pokemons />}></Route>
+          <Route exact path="/" element={<Pokemons />}></Route>
+          <Route exact path="/pokemon/:id" element={<Detail />}></Route>
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
